@@ -188,13 +188,7 @@ if __name__== '__main__':
     # Create header section
     header_bg = f"background-color: {bg_color}; border-radius: 5px; padding: 10px;"
     st.markdown(f"<div style='{header_bg}'>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 2,1])
-    with col1:
-        #st.image(logo1, width = 300)
-
- 
-        
-
+    col1, col2, col3 = st.columns([1, 2,1])  
     with col2:
         
         st.markdown(f'<p style="color:{text_color};font-size:72px;border-radius:2%;text-align:center;">EXIST-Chatbot</p>', unsafe_allow_html=True)
