@@ -172,7 +172,7 @@ if __name__== '__main__':
                 text-align: center;
                 text-decoration: none;
                 display: block; 
-                margin-left: 50px; 
+                margin-left: 0px; 
             }
         
             .my-link:hover {
