@@ -204,6 +204,7 @@ if __name__== '__main__':
         #message = st.text_input("")
         st.markdown(f'<p style="color:{text_color};font-size:24px;border-radius:2%;"> {Willkommenstext}</p>', unsafe_allow_html=True)
         st.write("")
+        st.write("")
         message = st.text_input("")
         #message = st.text_area("", "")
 
