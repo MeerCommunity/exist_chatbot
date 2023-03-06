@@ -171,7 +171,8 @@ if __name__== '__main__':
                 padding: 14px 25px;
                 text-align: center;
                 text-decoration: none;
-                display: inline-block;
+                display: block; 
+                margin-left: 50px; 
             }
         
             .my-link:hover {
