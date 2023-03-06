@@ -154,7 +154,7 @@ if __name__== '__main__':
                 background-color: #211f39;
                 padding: 14px 25px;
                 text-align: center;
-                text-decoration: none;
+                #text-decoration: none;
                 display: block; 
                 margin-left: 50px; 
                 margin-right: 50px;
