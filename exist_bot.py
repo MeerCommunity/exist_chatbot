@@ -237,7 +237,7 @@ if __name__== '__main__':
     with col2:
         st.image(logoEXIST, width=140)
     with col3:
-        st.image(logoBMWK, width=160)
+        st.image(logoBMWK, width=180)
     with col4:
         st.image(logo2, width=140)
     st.markdown("</div>", unsafe_allow_html=True)
