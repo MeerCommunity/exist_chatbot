@@ -160,7 +160,7 @@ if __name__== '__main__':
         
         st.markdown(
         """
-        <a href="https://www.streamlit.io/" target="_blank">Zur Startseite</a>
+        <a href=MCSC_url target="_blank">Zur Startseite</a>
         """,
         unsafe_allow_html=True,
         )
