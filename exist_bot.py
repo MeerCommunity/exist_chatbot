@@ -142,7 +142,7 @@ if __name__== '__main__':
     st.markdown(f"<div style='{header_bg}'>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2,1])
     with col1:
-        st.image(logo1, width = 300)
+        #st.image(logo1, width = 300)
 
         button_style = """
         <style>
