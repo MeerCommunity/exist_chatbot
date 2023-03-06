@@ -121,6 +121,7 @@ if __name__== '__main__':
             background-color: #211f39;
             display: flex;
             justify-content: center;
+            align-items: center; /* Zentriert die Elemente vertikal */
             border-bottom: 1px solid white;
                 }
 
@@ -129,7 +130,7 @@ if __name__== '__main__':
             display: block;
             color: white;
             margin-right: 30px; /* Erhöht den Abstand zwischen den Elementen */
-            font-size: 40px; /* Ändert die Schriftgröße */
+            font-size: 30px; /* Ändert die Schriftgröße */
             text-align: center;
             text-decoration: none;
             padding-top:14px; 
