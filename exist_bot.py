@@ -161,14 +161,12 @@ if __name__== '__main__':
         .burger {
         display: block;
         float: left;
-        color: white;
-        margin-right: 30px; /* Erhöht den Abstand zwischen den Elementen */
+        color: white !important;
         font-size: 30px; /* Ändert die Schriftgröße */
         text-align: center;
         text-decoration: none;
         padding-top:14px; 
         padding-bottom:14px; 
-        padding-left:16px; 
         padding-right:16px; 
     }
 
