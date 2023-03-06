@@ -145,18 +145,22 @@ if __name__== '__main__':
         st.image(logo1, width = 300)
 
         button_style = """
-            <style>
-            .stButton>button{
-            background-color: #008CBA;
-            margin-left: 50px;
+        <style>
+        .my-link {
             color: white;
-            width: 200px;
-            height:50px
+            background-color: #008CBA;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            }
+        
+            .my-link:hover {
+            background-color: #00bfff;
             }
             </style>
-            """
-     
-        st.markdown(button_style, unsafe_allow_html = True)
+         """
+        #st.markdown(button_style, unsafe_allow_html = True)
         
         st.markdown(
         """
