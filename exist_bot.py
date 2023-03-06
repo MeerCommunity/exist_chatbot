@@ -191,6 +191,21 @@ if __name__== '__main__':
         <a href="https://www.meercommunity.de/news/">NEWS</a>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Fügt das JavaScript hinzu
+    html("""
+    <script>
+       // Wählt das Burger-Icon und die Navbar aus
+        const burger = document.querySelector('.burger');
+        const navbar = document.querySelector('.navbar');
+
+       // Fügt einen Event-Listener zum Burger-Icon hinzu
+        burger.addEventListener('click', () => {
+    // Schaltet die Klasse "open" für die Navbar um
+        navbar.classList.toggle('open');
+        });
+    </script>
+""")
     keyInt = 0
     #input = ""
     # Render page layout
