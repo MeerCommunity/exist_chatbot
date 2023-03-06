@@ -141,15 +141,8 @@ if __name__== '__main__':
         .navbar a:hover {
             background-color: #111;
             }
-        .navbar a:last-child {
-            margin-right:0; /* Entfernt das rechte Margin des letzten Elements */
-            }
-        .navbar img{
-            height:auto !important ;
-            width:auto !important ;
-            max-height:auto !important ;
-            max-width:auto !important ;
-            }
+
+
     </style>
 
     <div class="navbar">
