@@ -121,6 +121,7 @@ if __name__== '__main__':
             background-color: #211f39;
             display: flex;
             justify-content: center;
+            border-bottom: 1px solid white;
   }
 
         .navbar a {
