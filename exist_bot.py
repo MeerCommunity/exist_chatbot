@@ -156,14 +156,14 @@ if __name__== '__main__':
             vertical-align:center; /* Zentriert das Bild vertikal */
             }
             
-            @media screen and (max-width: 600px) {
-    /* Zeigt das Burger-Icon auf kleinen Bildschirmen an */
-    .burger {
+     @media screen and (max-width: 600px) {
+            /* Zeigt das Burger-Icon auf kleinen Bildschirmen an */
+        .burger {
         display: block;
     }
 
     /* Versteckt die Navbar-Elemente auf kleinen Bildschirmen */
-    .navbar a {
+        .navbar a {
         display: none;
     }
 
@@ -171,7 +171,7 @@ if __name__== '__main__':
     .navbar.open a {
         display: block;
     }
-}
+        }
     </style>
     
     <!-- Das Burger-Menü -->
