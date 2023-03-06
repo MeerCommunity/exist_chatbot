@@ -141,8 +141,9 @@ if __name__== '__main__':
                 }
 
         .navbar a:hover {
-            background-color: #111;
+            border-bottom: 3px solid white;
             }
+            
 
         .navbar img {
             height: 80px; /* Setzt die Höhe des Bildes auf auto */
