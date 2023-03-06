@@ -146,6 +146,7 @@ if __name__== '__main__':
     </style>
 
     <div class="navbar">
+        <a href="https://www.meercommunity.de/"><img src="https://www.meercommunity.de/wp-content/uploads/2023/03/MCSC_Logo.png"></a>
         <a href="https://www.meercommunity.de/meercommunity/">ÜBER UNS</a>
         <a href="https://www.meercommunity.de/veranstaltung/">VERANSTALTUNGEN</a>
         <a href="https://www.meercommunity.de/informieren/">INFORMIEREN</a>
