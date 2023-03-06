@@ -158,6 +158,12 @@ if __name__== '__main__':
      
         st.markdown(button_style, unsafe_allow_html = True)
         
+        st.markdown(
+        """
+        <a href="https://www.streamlit.io/" target="_blank">Zur Startseite</a>
+        """,
+        unsafe_allow_html=True,
+        )
         st.button("Zur Startseite",on_click=open_URL,args=(MCSC_url,))
         st.write("")
         st.write("")
