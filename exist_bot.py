@@ -204,8 +204,8 @@ if __name__== '__main__':
         #st.markdown(f'<p style="color:{text_color};font-size:24px;border-radius:2%;">"Schön, dass ihr an den Themen Exist und Gründung interessiert seid. Ich habe alle Antworten zum Thema EXIST-Stipendium und Antragsstellung. Naja, fast alle. Meine menschlichen Sklaven, äh, Helfer kann ich dann doch noch nicht entbehren. Sagen die zumindest. Naja, findet es selber heraus, und gebt eure Fragen in das Eingabefeld ein."</p>', unsafe_allow_html=True)
         #message = st.text_input("")
         st.markdown(f'<p style="color:{text_color};font-size:24px;border-radius:2%;"> {Willkommenstext}</p>', unsafe_allow_html=True)
-        #message = st.text_input("")
-        message = st.text_area("", "")
+        message = st.text_input("")
+        #message = st.text_area("", "")
 
         st.markdown("</div>", unsafe_allow_html=True)
         
