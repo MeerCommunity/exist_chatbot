@@ -185,7 +185,7 @@ if __name__== '__main__':
             }
             </style>    
             <div class="container">
-            <img src="logo1" width="300" /> <!-- Fügt das Bild in einem Container hinzu -->
+            <img src="https://github.com/MeerCommunity/exist_chatbot/blob/main/MCSC_Logo.png" width="300" /> <!-- Fügt das Bild in einem Container hinzu -->
             </div>
         
             <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
