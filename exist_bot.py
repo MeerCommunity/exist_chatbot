@@ -117,7 +117,9 @@ if __name__== '__main__':
     # Add custom CSS for buttons
     st.markdown("""
     <style>
-        
+        .burger {
+            display: none;
+                }
         .navbar {
             overflow: hidden;
             background-color: #211f39;
@@ -153,6 +155,23 @@ if __name__== '__main__':
             max-width:80px; /* Setzt die maximale Breite des Bildes auf auto */
             vertical-align:center; /* Zentriert das Bild vertikal */
             }
+            
+            @media screen and (max-width: 600px) {
+    /* Zeigt das Burger-Icon auf kleinen Bildschirmen an */
+    .burger {
+        display: block;
+    }
+
+    /* Versteckt die Navbar-Elemente auf kleinen Bildschirmen */
+    .navbar a {
+        display: none;
+    }
+
+    /* Zeigt die Navbar-Elemente an, wenn das Menü geöffnet ist */
+    .navbar.open a {
+        display: block;
+    }
+}
     </style>
     
     <!-- Das Burger-Menü -->
