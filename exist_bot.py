@@ -179,10 +179,10 @@ if __name__== '__main__':
             }
             </style>    
          
-        """
-        <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
-        """,
-        unsafe_allow_html=True,
+        
+            <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
+            """,
+            unsafe_allow_html=True,
         )
         st.button("Zur Startseite",on_click=open_URL,args=(MCSC_url,))
         st.write("")
