@@ -143,10 +143,10 @@ if __name__== '__main__':
             }
 
         .navbar img {
-            height: 50px; /* Setzt die Höhe des Bildes auf auto */
-            width:50px; /* Setzt die Breite des Bildes auf auto */
-            max-height:50px; /* Setzt die maximale Höhe des Bildes auf auto */
-            max-width:50px; /* Setzt die maximale Breite des Bildes auf auto */
+            height: 80px; /* Setzt die Höhe des Bildes auf auto */
+            width:80px; /* Setzt die Breite des Bildes auf auto */
+            max-height:80px; /* Setzt die maximale Höhe des Bildes auf auto */
+            max-width:80px; /* Setzt die maximale Breite des Bildes auf auto */
             vertical-align:center; /* Zentriert das Bild vertikal */
             }
     </style>
