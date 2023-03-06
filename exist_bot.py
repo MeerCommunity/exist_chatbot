@@ -160,6 +160,16 @@ if __name__== '__main__':
             /* Zeigt das Burger-Icon auf kleinen Bildschirmen an */
         .burger {
         display: block;
+        float: left;
+        color: white;
+        margin-right: 30px; /* Erhöht den Abstand zwischen den Elementen */
+        font-size: 30px; /* Ändert die Schriftgröße */
+        text-align: center;
+        text-decoration: none;
+        padding-top:14px; 
+        padding-bottom:14px; 
+        padding-left:16px; 
+        padding-right:16px; 
     }
 
     /* Versteckt die Navbar-Elemente auf kleinen Bildschirmen */
