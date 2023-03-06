@@ -163,6 +163,22 @@ if __name__== '__main__':
         #st.markdown(button_style, unsafe_allow_html = True)
         
         st.markdown(
+            """
+            <style>
+            .my-link {
+                color: white;
+                background-color: #008CBA;
+                padding: 14px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+        
+            .my-link:hover {
+                background-color: #00bfff;
+            }
+            </style>    
+         
         """
         <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
         """,
