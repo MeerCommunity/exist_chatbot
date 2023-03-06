@@ -160,7 +160,7 @@ if __name__== '__main__':
             /* Zeigt das Burger-Icon auf kleinen Bildschirmen an */
         .burger {
         display: block;
-        float: left;
+        justify-content: center;
         color: white !important;
         font-size: 30px; /* Ändert die Schriftgröße */
         text-align: center;
