@@ -178,8 +178,15 @@ if __name__== '__main__':
             .my-link:hover {
                 background-color: #00bfff;
             }
+            
+            .container {
+            display: flex;
+            justify-content: center; /* Zentriert das Bild horizontal */
+            }
             </style>    
-         
+            <div class="container">
+            <img src="logo1" width="300" /> <!-- Fügt das Bild in einem Container hinzu -->
+            </div>
         
             <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
             <a class="my-link" href="https://www.meercommunity.de/meercommunity/?_gl=1*fbcg3r*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.." target="_blank">Wer sind wir?</a>
