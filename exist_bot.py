@@ -160,15 +160,15 @@ if __name__== '__main__':
      @media screen and (max-width: 600px) {
             /* Zeigt das Burger-Icon auf kleinen Bildschirmen an */
         .burger {
-        display: block;
-        justify-content: center;
-        color: white !important;
-        font-size: 30px; /* Ändert die Schriftgröße */
-        text-align: center;
-        text-decoration: none;
-        padding-top:14px; 
-        padding-bottom:14px; 
-        padding-right:16px; 
+            display: block;
+            justify-content: center;
+            color: white !important;
+            font-size: 30px; /* Ändert die Schriftgröße */
+            text-align: center;
+            text-decoration: none;
+            padding-top:14px; 
+            padding-bottom:14px; 
+            padding-right:16px; 
     }
 
     /* Versteckt die Navbar-Elemente auf kleinen Bildschirmen */
@@ -179,6 +179,7 @@ if __name__== '__main__':
     /* Zeigt die Navbar-Elemente an, wenn das Menü geöffnet ist */
     .navbar.open a {
         display: block;
+        color: white !important;
     }
         }
     </style>
