@@ -119,6 +119,7 @@ if __name__== '__main__':
     <style>
         .burger {
             display: none;
+            color: white !important;
                 }
         .navbar {
             overflow: hidden;
