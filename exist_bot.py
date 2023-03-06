@@ -172,8 +172,8 @@ if __name__== '__main__':
                 text-align: center;
                 text-decoration: none;
                 display: block; 
-                margin-left: 20px; 
-                margin-left: 20px; 
+                margin-left: 50px; 
+                margin-right: 50px; 
             }
         
             .my-link:hover {
