@@ -194,53 +194,7 @@ if __name__== '__main__':
 
  
         
-      /*  st.markdown(
-            """
-            <style>
-            .my-link {
-                color: white !important;
-                background-color: #211f39;
-                padding: 14px 25px;
-                text-align: center;
-                #text-decoration: none;
-                display: block; 
-                margin-left: 50px; 
-                margin-right: 50px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                font-size: 20px;
-            }
-        
-            .my-link:hover {
-                background-color: #89c7cf;
-            }
-            
-            .container {
-            display: flex;
-            justify-content: center; /* Zentriert das Bild horizontal */
-            }
-            </style>    
-            <div class="container">
-            <img src="https://www.meercommunity.de/wp-content/uploads/2023/03/MCSC_Logo.png" width="300" /> <!-- Fügt das Bild in einem Container hinzu -->
-            </div>
-        
-            <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
-            <a class="my-link" href="https://www.meercommunity.de/meercommunity/?_gl=1*fbcg3r*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.." target="_blank">Wer sind wir?</a>
-             <a class="my-link" href="https://www.meercommunity.de/booking/?_gl=1*v41p4s*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.." target="_blank">Beratung buchen</a>
-              <a class="my-link" href="https://www.meercommunity.de/veranstaltung/?_gl=1*fbcg3r*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.." target="_blank">Unsere Veranstaltungen</a>
-            """,
-            unsafe_allow_html=True,
-        )*/
-        #st.button("Zur Startseite",on_click=open_URL,args=(MCSC_url,))
-        st.write("")
-        st.write("")
-        #st.button("Wer sind wir?",on_click=open_URL,args=(Wer_url,))
-        st.write("")
-        st.write("")
-        #st.button("Beratungsgespräch buchen",on_click=open_URL,args=(Beratung_url,))
-        st.write("")
-        st.write("")
-        #st.button("Unsere Veranstaltungen",on_click=open_URL,args=(Veranstaltung_url,))
+
     with col2:
         
         st.markdown(f'<p style="color:{text_color};font-size:72px;border-radius:2%;text-align:center;">EXIST-Chatbot</p>', unsafe_allow_html=True)
