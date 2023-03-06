@@ -150,6 +150,8 @@ if __name__== '__main__':
         <a href="https://www.meercommunity.de/veranstaltung/">VERANSTALTUNGEN</a>
         <a href="https://www.meercommunity.de/informieren/">INFORMIEREN</a>
         <a href="https://www.meercommunity.de/netzwerken/">NETZWERK</a>
+        <a href="https://www.meercommunity.de/gruenderinnen/">BERATUNG</a>
+        <a href="https://www.meercommunity.de/news/">NEWS</a>
     </div>
     """, unsafe_allow_html=True)
     keyInt = 0
