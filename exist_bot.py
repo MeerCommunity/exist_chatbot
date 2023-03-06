@@ -150,7 +150,7 @@ if __name__== '__main__':
             """
             <style>
             .my-link {
-                color: white;
+                color: white !important;
                 background-color: #211f39;
                 padding: 14px 25px;
                 text-align: center;
