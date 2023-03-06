@@ -183,8 +183,7 @@ if __name__== '__main__':
     </style>
     
     <!-- Das Burger-Menü -->
-    <div class="burger">
-        
+    <div class="burger"> 
         <div> <a href="https://www.meercommunity.de/meercommunity/">ÜBER UNS</a> </div>
         <div><a href="https://www.meercommunity.de/veranstaltung/">VERANSTALTUNGEN</a> </div>
         <div><a href="https://www.meercommunity.de/informieren/">INFORMIEREN</a></div>
