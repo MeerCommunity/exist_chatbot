@@ -116,6 +116,8 @@ if __name__== '__main__':
     # Add custom CSS for buttons
     st.markdown("""
     <style>
+         .reportview-container .main .block-container {
+            padding-top: 0rem;
         .navbar {
             overflow: hidden;
             background-color: #211f39;
