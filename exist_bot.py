@@ -164,7 +164,7 @@ if __name__== '__main__':
         
         st.markdown(
         """
-        <a href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
+        <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
         """,
         unsafe_allow_html=True,
         )
