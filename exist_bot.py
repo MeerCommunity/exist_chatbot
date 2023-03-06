@@ -146,14 +146,9 @@ if __name__== '__main__':
     </style>
 
     <div class="navbar">
-       
-        <a href="https://www.meercommunity.de/meercommunity/">ÜBER UNS</a>
-        <a href="https://www.meercommunity.de/veranstaltung/">VERANSTALTUNGEN</a>
-        <a href="https://www.meercommunity.de/informieren/">INFORMIEREN</a>
-        <a href="https://www.meercommunity.de/netzwerken/">NETZWERK</a>
-        <a href="https://www.meercommunity.de/gruenderinnen/">BERATUNG</a>
-        <a href="https://www.meercommunity.de/news/">NEWS</a>
-        <a href="https://www.meercommunity.de/angebote-und-gesuche/">TEAMBÖRSE</a>
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
     </div>
     """, unsafe_allow_html=True)
     keyInt = 0
