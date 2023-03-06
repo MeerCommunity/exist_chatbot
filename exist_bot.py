@@ -121,7 +121,7 @@ if __name__== '__main__':
             background-color: #211f39;
             display: flex;
             justify-content: center;
-            align-items: center; /* Zentriert die Elemente vertikal */
+            align-items: top; /* Zentriert die Elemente vertikal */
             border-bottom: 1px solid white;
                 }
 
