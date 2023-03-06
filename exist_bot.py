@@ -118,7 +118,7 @@ if __name__== '__main__':
     <style>
         .navbar {
             overflow: hidden;
-            background-color: #333;
+            background-color: #211f39;
             display: flex;
             justify-content: center;
   }
