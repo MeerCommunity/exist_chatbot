@@ -14,6 +14,7 @@ import requests
 import webbrowser
 from openai.embeddings_utils import cosine_similarity
 from num2words import num2words
+from streamlit.components.v1 import html
 
 
 openai.api_key = st.secrets["api_key"]
@@ -153,6 +154,13 @@ if __name__== '__main__':
             vertical-align:center; /* Zentriert das Bild vertikal */
             }
     </style>
+    
+    <!-- Das Burger-Menü -->
+    <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
     <div class="navbar">
         <a href="https://www.meercommunity.de/"><img src="https://www.meercommunity.de/wp-content/uploads/2023/03/MCSC_Logo.png"></a>
