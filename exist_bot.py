@@ -185,7 +185,7 @@ if __name__== '__main__':
             }
             </style>    
             <div class="container">
-            <img src="https://www.meercommunity.de/wp-content/uploads/2022/05/BMWK_Logo_2021.svg.png" width="300" /> <!-- Fügt das Bild in einem Container hinzu -->
+            <img src="https://www.meercommunity.de/wp-content/uploads/2023/03/MCSC_Logo.png" width="300" /> <!-- Fügt das Bild in einem Container hinzu -->
             </div>
         
             <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
