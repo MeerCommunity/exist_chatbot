@@ -128,8 +128,8 @@ if __name__== '__main__':
             float: left;
             display: block;
             color: white;
-            margin-right: 20px; /* Erhöht den Abstand zwischen den Elementen */
-            font-size: 20px; /* Ändert die Schriftgröße */
+            margin-right: 30px; /* Erhöht den Abstand zwischen den Elementen */
+            font-size: 40px; /* Ändert die Schriftgröße */
             text-align: center;
             text-decoration: none;
             padding-top:14px; 
