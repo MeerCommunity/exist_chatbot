@@ -142,7 +142,13 @@ if __name__== '__main__':
             background-color: #111;
             }
 
-
+        .navbar img {
+            height: auto; /* Setzt die Höhe des Bildes auf auto */
+            width:auto; /* Setzt die Breite des Bildes auf auto */
+            max-height:auto; /* Setzt die maximale Höhe des Bildes auf auto */
+            max-width:auto; /* Setzt die maximale Breite des Bildes auf auto */
+            vertical-align:center; /* Zentriert das Bild vertikal */
+            }
     </style>
 
     <div class="navbar">
