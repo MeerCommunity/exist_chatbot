@@ -114,7 +114,33 @@ Veranstaltung_url ="https://www.meercommunity.de/veranstaltung/?_gl=1*fbcg3r*_ga
 if __name__== '__main__':
     #while True:
     # Add custom CSS for buttons
+    st.markdown("""
+    <style>
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+  }
 
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: #111;
+    }
+    </style>
+
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+    </div>
+""", unsafe_allow_html=True)
     keyInt = 0
     #input = ""
     # Render page layout
