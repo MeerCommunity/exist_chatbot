@@ -40,7 +40,7 @@ df_try['ada_v2_embedding'] = all_embeddings
 
 
 # Set page config
-st.set_page_config(page_title="EXIST-Chatbot", page_icon=":robot_face:", layout="wide")
+st.set_page_config(page_title="EXIST-Chatbot", page_icon="MCSC_Logo.png", layout="wide")
 
 
 def add_bg_from_url():
