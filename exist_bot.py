@@ -122,7 +122,7 @@ if __name__== '__main__':
             display: flex;
             justify-content: center;
             border-bottom: 1px solid white;
-  }
+                }
 
         .navbar a {
             float: left;
@@ -136,24 +136,24 @@ if __name__== '__main__':
             padding-bottom:14px; 
             padding-left:16px; 
             padding-right:16px; 
-  }
+                }
 
         .navbar a:hover {
             background-color: #111;
-  }
+            }
         .navbar a:last-child {
             margin-right:0; /* Entfernt das rechte Margin des letzten Elements */
-  }
+            }
         .navbar img{
             height:auto !important ;
             width:auto !important ;
             max-height:auto !important ;
             max-width:auto !important ;
-}
+            }
     </style>
 
     <div class="navbar">
-        /*<a href="https://www.meercommunity.de"><img src="https://www.meercommunity.de/wp-content/uploads/2023/03/MCSC_Logo.png" alt="Logo"></a> */
+       
         <a href="https://www.meercommunity.de/meercommunity/">ÜBER UNS</a>
         <a href="https://www.meercommunity.de/veranstaltung/">VERANSTALTUNGEN</a>
         <a href="https://www.meercommunity.de/informieren/">INFORMIEREN</a>
