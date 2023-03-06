@@ -167,7 +167,7 @@ if __name__== '__main__':
             <style>
             .my-link {
                 color: white;
-                background-color: #008CBA;
+                background-color: #211f39;
                 padding: 14px 25px;
                 text-align: center;
                 text-decoration: none;
@@ -177,7 +177,7 @@ if __name__== '__main__':
             }
         
             .my-link:hover {
-                background-color: #00bfff;
+                background-color: #89c7cf;
             }
             
             .container {
