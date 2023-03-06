@@ -116,8 +116,7 @@ if __name__== '__main__':
     # Add custom CSS for buttons
     st.markdown("""
     <style>
-         .reportview-container .main .block-container {
-            padding-top: 0rem;
+        
         .navbar {
             overflow: hidden;
             background-color: #211f39;
@@ -195,7 +194,7 @@ if __name__== '__main__':
 
  
         
-        st.markdown(
+      /*  st.markdown(
             """
             <style>
             .my-link {
@@ -231,7 +230,7 @@ if __name__== '__main__':
               <a class="my-link" href="https://www.meercommunity.de/veranstaltung/?_gl=1*fbcg3r*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.." target="_blank">Unsere Veranstaltungen</a>
             """,
             unsafe_allow_html=True,
-        )
+        )*/
         #st.button("Zur Startseite",on_click=open_URL,args=(MCSC_url,))
         st.write("")
         st.write("")
