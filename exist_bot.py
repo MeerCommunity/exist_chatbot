@@ -181,19 +181,22 @@ if __name__== '__main__':
          
         
             <a class="my-link" href="https://www.meercommunity.de" target="_blank">Zur Startseite</a>
+            <a class="my-link" href="https://www.meercommunity.de/meercommunity/?_gl=1*fbcg3r*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.." target="_blank">Wer sind wir?</a>
+             <a class="my-link" href="https://www.meercommunity.de/booking/?_gl=1*v41p4s*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.." target="_blank">Beratung buchen</a>
+              <a class="my-link" href="https://www.meercommunity.de/veranstaltung/?_gl=1*fbcg3r*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.." target="_blank">Unsere Veranstaltungen</a>
             """,
             unsafe_allow_html=True,
         )
-        st.button("Zur Startseite",on_click=open_URL,args=(MCSC_url,))
+        #st.button("Zur Startseite",on_click=open_URL,args=(MCSC_url,))
         st.write("")
         st.write("")
-        st.button("Wer sind wir?",on_click=open_URL,args=(Wer_url,))
+        #st.button("Wer sind wir?",on_click=open_URL,args=(Wer_url,))
         st.write("")
         st.write("")
-        st.button("Beratungsgespräch buchen",on_click=open_URL,args=(Beratung_url,))
+        #st.button("Beratungsgespräch buchen",on_click=open_URL,args=(Beratung_url,))
         st.write("")
         st.write("")
-        st.button("Unsere Veranstaltungen",on_click=open_URL,args=(Veranstaltung_url,))
+        #st.button("Unsere Veranstaltungen",on_click=open_URL,args=(Veranstaltung_url,))
     with col2:
         st.write("")
         
