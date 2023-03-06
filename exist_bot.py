@@ -160,6 +160,7 @@ if __name__== '__main__':
                 margin-right: 50px;
                 margin-top: 10px;
                 margin-bottom: 10px;
+                font-size: 20px;
             }
         
             .my-link:hover {
