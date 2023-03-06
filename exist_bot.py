@@ -236,6 +236,7 @@ if __name__== '__main__':
     logoHSEL ="logo_hsel.png"
     logoEXIST ="logo_exist.png"
     notice = "hinweis_beta.png"
+    termin = "Termin_vereinbaren_rund.png"
     
     # Set page background color
     page_bg = f"background-color: {bg_color};"
@@ -244,7 +245,9 @@ if __name__== '__main__':
     # Create header section
     header_bg = f"background-color: {bg_color}; border-radius: 5px; padding: 10px;"
     st.markdown(f"<div style='{header_bg}'>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 2,1])  
+    col1, col2, col3 = st.columns([1, 2,1])
+    with col1:
+        st.markdown(f'<a href="https://www.meercommunity.de/booking/?_gl=1*3tmwvy*_ga*MjU0NTUwNjgxLjE2NzgxMTQ3NzU.*_up*MQ.."><img src="https://www.meercommunity.de/wp-content/uploads/2022/07/Termin_vereinbaren_rund.png"></a>', unsafe_allow_html=True)
     with col2:
         
         st.markdown(f'<p style="color:{text_color};font-size:72px;border-radius:2%;text-align:center;">EXIST-Chatbot</p>', unsafe_allow_html=True)
