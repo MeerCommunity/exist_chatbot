@@ -321,15 +321,15 @@ if __name__== '__main__':
         st.markdown("</div>", unsafe_allow_html=True)
   
         #submit = st.button("Abschicken", "")
-        #button = st.button("Click me", key="my_button", help="Click me to do something!")
-        st.markdown(
-        f'<button style="background-color: {button_styles_try["background-color"]}; '
-        f'color: {button_styles_try["color"]}; '
-        f'font-size: {button_styles_try["font-size"]}; '
-        f'padding: {button_styles_try["padding"]}; '
-        f'border-radius: {button_styles_try["border-radius"]};">Abschicken</button>',
-        unsafe_allow_html=True,
-    )
+        button = st.button("Click me", key="my_button", help="Klicke mich um die Frage abzuschicken!")
+        #st.markdown(
+        #f'<button style="background-color: {button_styles_try["background-color"]}; '
+        #f'color: {button_styles_try["color"]}; '
+        #f'font-size: {button_styles_try["font-size"]}; '
+        #f'padding: {button_styles_try["padding"]}; '
+        #f'border-radius: {button_styles_try["border-radius"]};">Abschicken</button>',
+        #unsafe_allow_html=True,
+    #)
   
         
        
@@ -393,8 +393,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
-        #message = st.text_input("",key="input", value="")
-        message = ""
+     
         
         
     if button:
@@ -420,7 +419,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
-        message = ""
+        
         
     if q1_btn:
         keyInt = keyInt + 1
