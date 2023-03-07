@@ -323,7 +323,7 @@ if __name__== '__main__':
         f'color: {button_styles_try["color"]}; '
         f'font-size: {button_styles_try["font-size"]}; '
         f'padding: {button_styles_try["padding"]}; '
-        f'border-radius: {button_styles_try["border-radius"]};">Click me</button>',
+        f'border-radius: {button_styles_try["border-radius"]};">Abschiken</button>',
         unsafe_allow_html=True,
     )
   
