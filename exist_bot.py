@@ -90,6 +90,14 @@ button_style_submit = """
             }
      </style>
       """
+button_styles_test = {
+    "background-color": "#007bff",
+    "color": "#fff",
+    "font-size": "20px",
+    "padding": "10px 20px",
+    "border-radius": "5px",
+}
+
 def get_embedding(text, model="text-embedding-ada-002"):
    return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
 
@@ -307,9 +315,17 @@ if __name__== '__main__':
         message = st.text_input("")
         #message = st.text_area("", "")
         st.markdown("</div>", unsafe_allow_html=True)
-        st.markdown('<div class="submitBtn">', unsafe_allow_html=True)
+  
         submit = st.button("Abschicken", "")
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown(
+        f'<submit style="background-color: {button_styles_try["background-color"]}; '
+        f'color: {button_styles_try["color"]}; '
+        f'font-size: {button_styles_try["font-size"]}; '
+        f'padding: {button_styles_try["padding"]}; '
+        f'border-radius: {button_styles_try["border-radius"]};">Click me</button>',
+        unsafe_allow_html=True,
+    )
+  
         
        
         
