@@ -318,14 +318,7 @@ if __name__== '__main__':
         st.write("")
         st.write("")
         st.markdown('<style>label {color: white;}</style>', unsafe_allow_html=True)
-        components.v1.html("""
-    <style>
-        .my-label {
-            color: white;
-        }
-    </style>
-    <label class="my-label">Bitte gib eine Nachricht ein:</label>
-""", height=30)
+
         message = st.text_input("",key= "input", value="Wer bist du?")
        
         
@@ -382,56 +375,60 @@ if __name__== '__main__':
     output = ''
         # Check if the button is pressed
     if message:
-       
-        keyInt = keyInt + 1
-        ai_question = message
-        #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
-        res = search_docs(df_try, ai_question, top_n=1)
-        #Greife den Inhalt des Eintrages ab
-        context= res.CONTENT.values
+        if len(message.split()) >= 3:
+            keyInt = keyInt + 1
+            ai_question = message
+            #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
+            res = search_docs(df_try, ai_question, top_n=1)
+            #Greife den Inhalt des Eintrages ab
+            context= res.CONTENT.values
         
-        #Kombiniere den Prompt mit Baisisprompt, dem Inhalt und der Frage
-        combined_prompt = initial_prompt + str(context) + output + "Q: " + ai_question
+            #Kombiniere den Prompt mit Baisisprompt, dem Inhalt und der Frage
+            combined_prompt = initial_prompt + str(context) + output + "Q: " + ai_question
             
-        #API-Abfrage
-        messages.append(
-            {"role": "user", "content": combined_prompt},
-        )        
-        chat = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", messages=messages
-        )
+            #API-Abfrage
+            messages.append(
+                {"role": "user", "content": combined_prompt},
+            )        
+            chat = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo", messages=messages
+            )
             
-        #Greife Inhalt des Resultat der API Abfrage ab
-        ai_response = chat.choices[0].message.content
-        output = ai_response
-        update_markdown(empty_slot,output)
-     
+            #Greife Inhalt des Resultat der API Abfrage ab
+            ai_response = chat.choices[0].message.content
+            output = ai_response
+            update_markdown(empty_slot,output)
+        else:
+            output = "Bitte gib eine Frage mit mindestens 3 Wörtern ein."
         
         
     if button:
-        keyInt = keyInt + 1
-        ai_question = message
-        #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
-        res = search_docs(df_try, ai_question, top_n=1)
-        #Greife den Inhalt des Eintrages ab
-        context= res.CONTENT.values
+        if len(message.split()) >= 3:
+            keyInt = keyInt + 1
+            ai_question = message
+            #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
+            res = search_docs(df_try, ai_question, top_n=1)
+            #Greife den Inhalt des Eintrages ab
+            context= res.CONTENT.values
         
-        #Kombiniere den Prompt mit Baisisprompt, dem Inhalt und der Frage
-        combined_prompt = initial_prompt + str(context) + output + "Q: " + ai_question
+            #Kombiniere den Prompt mit Baisisprompt, dem Inhalt und der Frage
+            combined_prompt = initial_prompt + str(context) + output + "Q: " + ai_question
             
-        #API-Abfrage
-        messages.append(
-            {"role": "user", "content": combined_prompt},
-        )        
-        chat = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", messages=messages
+            #API-Abfrage
+            messages.append(
+                {"role": "user", "content": combined_prompt},
+            )        
+            chat = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo", messages=messages
         )
             
-        #Greife Inhalt des Resultat der API Abfrage ab
-        ai_response = chat.choices[0].message.content
-        output = ai_response
-        update_markdown(empty_slot,output)
-        message = ""
+            #Greife Inhalt des Resultat der API Abfrage ab
+            ai_response = chat.choices[0].message.content
+            output = ai_response
+            update_markdown(empty_slot,output)
+        else:
+            output = "Bitte gib eine Frage mit mindestens 3 Wörtern ein."
+            
         
         
     if q1_btn:
