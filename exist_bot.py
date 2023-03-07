@@ -326,7 +326,7 @@ if __name__== '__main__':
     </style>
     <label class="my-label">Bitte gib eine Nachricht ein:</label>
 """, height=30)
-        message = st.text_input(key= "input", value="Wer bist du?")
+        message = st.text_input("",key= "input", value="Wer bist du?")
        
         
         #message = st.text_area("", "")
