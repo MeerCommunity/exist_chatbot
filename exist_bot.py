@@ -374,33 +374,7 @@ if __name__== '__main__':
     
     output = ''
         # Check if the button is pressed
-    if message:
-        if len(message.split()) >= 3:
-            keyInt = keyInt + 1
-            ai_question = message
-            #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
-            res = search_docs(df_try, ai_question, top_n=1)
-            #Greife den Inhalt des Eintrages ab
-            context= res.CONTENT.values
-        
-            #Kombiniere den Prompt mit Baisisprompt, dem Inhalt und der Frage
-            combined_prompt = initial_prompt + str(context) + output + "Q: " + ai_question
-            
-            #API-Abfrage
-            messages.append(
-                {"role": "user", "content": combined_prompt},
-            )        
-            chat = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", messages=messages
-            )
-            
-            #Greife Inhalt des Resultat der API Abfrage ab
-            ai_response = chat.choices[0].message.content
-            output = ai_response
-            update_markdown(empty_slot,output)
-        else:
-            output = Meldung_Worte
-            update_markdown(empty_slot,output)
+
            
         
         
