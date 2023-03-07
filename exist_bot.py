@@ -90,7 +90,7 @@ button_style_submit = """
             }
      </style>
       """
-button_styles_test = {
+button_styles_try = {
     "background-color": "#007bff",
     "color": "#fff",
     "font-size": "20px",
