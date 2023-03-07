@@ -101,14 +101,7 @@ button_styles_try = {
     "border-radius": "5px",
 }
 
-components.v1.html("""
-    <style>
-        .my-label {
-            color: white;
-        }
-    </style>
-    <label class="my-label">Bitte gib eine Nachricht ein:</label>
-""", height=30)
+
 
 def get_embedding(text, model="text-embedding-ada-002"):
    return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
@@ -325,7 +318,15 @@ if __name__== '__main__':
         st.write("")
         st.write("")
         st.markdown('<style>label {color: white;}</style>', unsafe_allow_html=True)
-        message = st.text_input(label="Bitte gib eine Nachricht ein:",key= "input", value="Wer bist du?")
+        components.v1.html("""
+    <style>
+        .my-label {
+            color: white;
+        }
+    </style>
+    <label class="my-label">Bitte gib eine Nachricht ein:</label>
+""", height=30)
+        message = st.text_input(key= "input", value="Wer bist du?")
        
         
         #message = st.text_area("", "")
