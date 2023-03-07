@@ -69,12 +69,7 @@ button_style = """
             background: #0069af;
             }
             
-         .submitBtn > button{
-            color: white;
-            height: 50px;
-            width: 100px;
-            background: red;
-            }
+
      </style>
       """
 st.markdown(button_style, unsafe_allow_html=True)
