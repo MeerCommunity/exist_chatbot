@@ -68,6 +68,13 @@ button_style = """
             width: 200px;
             background: #0069af;
             }
+            
+         .submitBtn > button{
+            color: white;
+            height: 50px;
+            width: 100px;
+            background: red;
+            }
      </style>
       """
 st.markdown(button_style, unsafe_allow_html=True)
@@ -288,8 +295,10 @@ if __name__== '__main__':
         st.write("")
         message = st.text_input("")
         #message = st.text_area("", "")
-        submit = st.button("Abschicken", "")
         st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown('<div class="submitBtn">', unsafe_allow_html=True)
+        submit = st.button("Abschicken", "")
+        st.markdown('</div>', unsafe_allow_html=True)
         
     
 
