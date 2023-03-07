@@ -62,7 +62,7 @@ add_bg_from_url()
 
 button_style = """
     <style>
-        .stButton > button{
+        .stButton{
             color: #211f39;
             height: 100px;
             width: 200px;
