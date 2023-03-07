@@ -260,7 +260,8 @@ if __name__== '__main__':
         st.markdown(f'<p style="color:{text_color};font-size:24px;border-radius:2%; font-style:italic;"> {Willkommenstext}</p>', unsafe_allow_html=True)
         q0, q1, q2, q3 = st.columns([1,1, 1,1])
         with q0:
-            st.write("Beispielfragen:", "q0")
+            #st.write("Beispielfragen:")
+            st.markdown(f'<p style="color:{text_color};font-size:16px;border-radius:2%;"> "Beispielfragen:"</p>', unsafe_allow_html=True)
         with q1:
             Beispiel1 = "Was ist Exist?"
             st.button(Beispiel1, "q1")
