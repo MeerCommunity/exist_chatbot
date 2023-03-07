@@ -15,6 +15,7 @@ import webbrowser
 from openai.embeddings_utils import cosine_similarity
 from num2words import num2words
 from streamlit.components.v1 import html
+from streamlit import components
 
 
 openai.api_key = st.secrets["api_key"]
@@ -99,6 +100,15 @@ button_styles_try = {
     "padding": "10px 20px",
     "border-radius": "5px",
 }
+
+components.v1.html("""
+    <style>
+        .my-label {
+            color: white;
+        }
+    </style>
+    <label class="my-label">Bitte gib eine Nachricht ein:</label>
+""", height=0)
 
 def get_embedding(text, model="text-embedding-ada-002"):
    return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
