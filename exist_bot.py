@@ -62,13 +62,13 @@ add_bg_from_url()
 
 button_style = """
     <style>
-        .stButton{
+        .stButton > button{
             color: #211f39;
             height: 100px;
             width: 200px;
             background: #0069af;
             }
-         .submitBtn{
+         .submitBtn > button {
             color: white;
             height: 50px;
             width: 100px;
