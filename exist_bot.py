@@ -316,14 +316,14 @@ if __name__== '__main__':
         #message = st.text_area("", "")
         st.markdown("</div>", unsafe_allow_html=True)
   
-        submit = st.button("Abschicken", "")
+        #submit = st.button("Abschicken", "")
         button = st.button("Click me", key="my_button", help="Click me to do something!")
         st.markdown(
-        f'<submit style="background-color: {button_styles_try["background-color"]}; '
+        f'<button style="background-color: {button_styles_try["background-color"]}; '
         f'color: {button_styles_try["color"]}; '
         f'font-size: {button_styles_try["font-size"]}; '
         f'padding: {button_styles_try["padding"]}; '
-        f'border-radius: {button_styles_try["border-radius"]};">Click me</submit>',
+        f'border-radius: {button_styles_try["border-radius"]};">Click me</button>',
         unsafe_allow_html=True,
     )
   
