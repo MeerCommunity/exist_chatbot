@@ -230,7 +230,6 @@ if __name__== '__main__':
         <div><a href="https://www.meercommunity.de/veranstaltung/">VERANSTALTUNGEN</a> </div>
         <div><a href="https://www.meercommunity.de/informieren/">INFORMIEREN</a></div>
         <div> <a href="https://www.meercommunity.de/gruenderinnen/">BERATUNG</a> </div>
-        <div><a href="https://www.meercommunity.de/gruenderinnen/">BERATUNG</a> </div>
         <div><a href="https://www.meercommunity.de/news/">NEWS</a></div>
     </div>
 
