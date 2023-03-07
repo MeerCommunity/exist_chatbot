@@ -316,6 +316,7 @@ if __name__== '__main__':
         st.write("")
         message = st.text_input("")
         message.on_click(clear_input)
+        
         #message = st.text_area("", "")
         st.markdown("</div>", unsafe_allow_html=True)
   
@@ -369,6 +370,7 @@ if __name__== '__main__':
     output = ''
         # Check if the button is pressed
     if message:
+       
         keyInt = keyInt + 1
         ai_question = message
         #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
@@ -391,6 +393,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
+        message = ""
         
         
     if button:
@@ -416,6 +419,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
+        message = ""
         
     if q1_btn:
         keyInt = keyInt + 1
@@ -440,6 +444,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
+        
         
     if q2_btn:
         keyInt = keyInt + 1
