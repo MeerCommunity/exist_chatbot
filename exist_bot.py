@@ -301,9 +301,10 @@ if __name__== '__main__':
         message = st.text_input("")
         #message = st.text_area("", "")
         st.markdown("</div>", unsafe_allow_html=True)
-        st.markdown(button_style_submit, unsafe_allow_html=True)
-        
+        st.markdown('<div class="submitBtn">', unsafe_allow_html=True)
         submit = st.button("Abschicken", "")
+        st.markdown('</div>', unsafe_allow_html=True)
+        
        
         
     
