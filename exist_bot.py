@@ -108,7 +108,7 @@ components.v1.html("""
         }
     </style>
     <label class="my-label">Bitte gib eine Nachricht ein:</label>
-""", height=0)
+""", height=30)
 
 def get_embedding(text, model="text-embedding-ada-002"):
    return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
