@@ -323,7 +323,7 @@ if __name__== '__main__':
         f'color: {button_styles_try["color"]}; '
         f'font-size: {button_styles_try["font-size"]}; '
         f'padding: {button_styles_try["padding"]}; '
-        f'border-radius: {button_styles_try["border-radius"]};">Abschiken</button>',
+        f'border-radius: {button_styles_try["border-radius"]};">Abschicken</button>',
         unsafe_allow_html=True,
     )
   
@@ -390,7 +390,7 @@ if __name__== '__main__':
         update_markdown(empty_slot,output)
         
         
-    if submit:
+    if button:
         keyInt = keyInt + 1
         ai_question = message
         #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
