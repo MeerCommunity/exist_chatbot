@@ -68,6 +68,12 @@ button_style = """
             width: 200px;
             background: #0069af;
             }
+         .submitBtn{
+            color: white;
+            height: 50px;
+            width: 100px;
+            background: red;
+            }
             
 
      </style>
