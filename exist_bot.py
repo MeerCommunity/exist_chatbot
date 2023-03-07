@@ -274,6 +274,8 @@ if __name__== '__main__':
         st.write("")
         q0, q1, q2, q3 = st.columns([1,1, 1,1])
         with q0:
+            st.write("")
+            st.write("")
             #st.write("Beispielfragen:")
             st.markdown(f'<p style="color:{text_color};font-size:24px;border-radius:2%;text-align:right;vertical-align:middle;"> Beispielfragen:</p>', unsafe_allow_html=True)
         with q1:
