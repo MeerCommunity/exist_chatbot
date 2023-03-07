@@ -314,7 +314,7 @@ if __name__== '__main__':
             q3_btn = st.button(Beispiel3, "q3")
         st.write("")
         st.write("")
-        message = st.text_input("",key= "input", value="Wer bist du?")
+        message = st.text_inputlabel="Bitte gib eine Nachricht ein:",key= "input", value="Wer bist du?")
        
         
         #message = st.text_area("", "")
