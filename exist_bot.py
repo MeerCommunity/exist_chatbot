@@ -261,13 +261,13 @@ if __name__== '__main__':
         q1, q2, q3 = st.columns([1, 1,1])
         with q1:
             Beispiel1 = "Was ist Exist?"
-            st.button(Beispiel1, "")
+            st.button(Beispiel1, "q1")
         with q2:
             Beispiel2 = "Was macht die Meercommunity?"
-            st.button(Beispiel2, "")
+            st.button(Beispiel2, "q2")
         with q3:
             Beispiel3 = "Welche Förderungen gibt es?"
-            st.button(Beispiel3, "")
+            st.button(Beispiel3, "q3")
         st.write("")
         st.write("")
         message = st.text_input("")
