@@ -150,7 +150,7 @@ Wer_url ="https://www.meercommunity.de/meercommunity/?_gl=1*fbcg3r*_ga*MTEzMTcxM
 Beratung_url = "https://www.meercommunity.de/booking/?_gl=1*v41p4s*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.."
 Veranstaltung_url ="https://www.meercommunity.de/veranstaltung/?_gl=1*fbcg3r*_ga*MTEzMTcxMDQyOS4xNjc4MDkyNzc5*_up*MQ.."
 
-Meldung_Worte = "Bitte gib eine Nachricht mit mindestens 3 Wörtern ein."
+Meldung_Worte = "Bitte gib eine Frage mit mindestens 3 Wörtern ein."
    
 if __name__== '__main__':
     #while True:
