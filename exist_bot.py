@@ -314,6 +314,7 @@ if __name__== '__main__':
             q3_btn = st.button(Beispiel3, "q3")
         st.write("")
         st.write("")
+        st.markdown('<style>label {color: white;}</style>', unsafe_allow_html=True)
         message = st.text_input(label="Bitte gib eine Nachricht ein:",key= "input", value="Wer bist du?")
        
         
