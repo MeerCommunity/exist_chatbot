@@ -386,7 +386,7 @@ if __name__== '__main__':
         output = ai_response
         update_markdown(empty_slot,output)
         
-     if q3_btn:
+    if q3_btn:
         keyInt = keyInt + 1
         ai_question = Beispiel3
         #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
