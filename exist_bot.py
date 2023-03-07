@@ -76,8 +76,7 @@ st.markdown(button_style, unsafe_allow_html=True)
 
 button_style_submit = """
     <style>
-            
-         .submitBtn > button{
+         .submitBtn{
             color: white;
             height: 50px;
             width: 100px;
