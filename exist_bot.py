@@ -393,7 +393,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
-        message = ""
+        message.value = ""
         
         
     if button:
@@ -419,7 +419,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
-        message = ""
+        message.value = ""
         
     if q1_btn:
         keyInt = keyInt + 1
