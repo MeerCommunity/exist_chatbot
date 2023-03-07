@@ -232,7 +232,7 @@ if __name__== '__main__':
     #input = ""
     # Render page layout
     
-    Beispiel1 = "Was ist Exist?"
+    Beispiel1 = "Was ist Exist?              "             
     Beispiel2 = "Was macht die Meercommunity?"
     Beispiel3 = "Welche Förderungen gibt es?"
     
