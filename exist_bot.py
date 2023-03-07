@@ -314,7 +314,7 @@ if __name__== '__main__':
             q3_btn = st.button(Beispiel3, "q3")
         st.write("")
         st.write("")
-        message = st.text_input("", value="Frag mich was!")
+        message = st.text_input("","input", value="Wer bist du?")
        
         
         #message = st.text_area("", "")
@@ -393,7 +393,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
-        message = st.text_input("", value="")
+        message = st.text_input("","input", value="")
         
         
     if button:
@@ -419,7 +419,7 @@ if __name__== '__main__':
         ai_response = chat.choices[0].message.content
         output = ai_response
         update_markdown(empty_slot,output)
-        message = st.text_input("", value="")
+        message = st.text_input("","input", value="")
         
     if q1_btn:
         keyInt = keyInt + 1
