@@ -315,7 +315,7 @@ if __name__== '__main__':
         st.write("")
         st.write("")
         message = st.text_input("")
-        message.on_click(clear_input)
+       
         
         #message = st.text_area("", "")
         st.markdown("</div>", unsafe_allow_html=True)
