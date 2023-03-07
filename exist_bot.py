@@ -63,10 +63,10 @@ add_bg_from_url()
 button_style = """
     <style>
         .stButton > button{
-            color: black;
-            height: 50px;
-            width: 100px;
-            background: red;
+            color: #211f39;
+            height: 100px;
+            width: 250;
+            background: #0069af;
             }
      </style>
       """
