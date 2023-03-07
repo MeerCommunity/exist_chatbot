@@ -317,12 +317,13 @@ if __name__== '__main__':
         st.markdown("</div>", unsafe_allow_html=True)
   
         submit = st.button("Abschicken", "")
+        button = st.button("Click me", key="my_button", help="Click me to do something!")
         st.markdown(
         f'<submit style="background-color: {button_styles_try["background-color"]}; '
         f'color: {button_styles_try["color"]}; '
         f'font-size: {button_styles_try["font-size"]}; '
         f'padding: {button_styles_try["padding"]}; '
-        f'border-radius: {button_styles_try["border-radius"]};">Click me</button>',
+        f'border-radius: {button_styles_try["border-radius"]};">Click me</submit>',
         unsafe_allow_html=True,
     )
   
