@@ -399,7 +399,8 @@ if __name__== '__main__':
             output = ai_response
             update_markdown(empty_slot,output)
         else:
-            output = "Bitte gib eine Frage mit mindestens 3 Wörtern ein."
+            #output = "Bitte gib eine Frage mit mindestens 3 Wörtern ein."
+            st.write("Bitte gib eine Nachricht mit mindestens 3 Wörtern ein.")
         
         
     if button:
@@ -427,7 +428,8 @@ if __name__== '__main__':
             output = ai_response
             update_markdown(empty_slot,output)
         else:
-            output = "Bitte gib eine Frage mit mindestens 3 Wörtern ein."
+            #output = "Bitte gib eine Frage mit mindestens 3 Wörtern ein."
+            st.write("Bitte gib eine Nachricht mit mindestens 3 Wörtern ein.")
             
         
         
