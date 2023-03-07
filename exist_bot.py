@@ -43,6 +43,8 @@ df_try['ada_v2_embedding'] = all_embeddings
 # Set page config
 st.set_page_config(page_title="EXIST-Chatbot", page_icon="MCSC_Icon.png", layout="wide")
 
+def clear_input():
+    message.empty()
 
 def add_bg_from_url():
     st.markdown(
@@ -313,6 +315,7 @@ if __name__== '__main__':
         st.write("")
         st.write("")
         message = st.text_input("")
+        message.on_click(clear_input)
         #message = st.text_area("", "")
         st.markdown("</div>", unsafe_allow_html=True)
   
