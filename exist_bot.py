@@ -222,7 +222,11 @@ if __name__== '__main__':
     keyInt = 0
     #input = ""
     # Render page layout
-        
+    
+    Beispiel1 = "Was ist Exist?"
+    Beispiel2 = "Was macht die Meercommunity?"
+    Beispiel3 = "Welche Förderungen gibt es?"
+    
     initial_prompt ="Du bist ein Start-Up Guide für das EXIST Programm. Du bist hilfreich, clever und freundlich. Antworte ausschließlich in deutscher Sprache. Sei prägnant in deinen Antworten. Nutze den folgenden Text für deine Antwort:"
     #ai_question = st.text_input('Wie kann ich dir helfen???', key=str(keyInt))
             # Define colors
@@ -261,16 +265,13 @@ if __name__== '__main__':
         q0, q1, q2, q3 = st.columns([1,1, 1,1])
         with q0:
             #st.write("Beispielfragen:")
-            st.markdown(f'<p style="color:{text_color};font-size:16px;border-radius:2%;"> "Beispielfragen:"</p>', unsafe_allow_html=True)
+            st.markdown(f'<p style="color:{text_color};font-size:24px;border-radius:2%;"> Beispielfragen:</p>', unsafe_allow_html=True)
         with q1:
-            Beispiel1 = "Was ist Exist?"
-            st.button(Beispiel1, "q1")
+            q1_btn = st.button(Beispiel1, "q1")
         with q2:
-            Beispiel2 = "Was macht die Meercommunity?"
-            st.button(Beispiel2, "q2")
+            q2_btn = st.button(Beispiel2, "q2")
         with q3:
-            Beispiel3 = "Welche Förderungen gibt es?"
-            st.button(Beispiel3, "q3")
+            q3_btn = st.button(Beispiel3, "q3")
         st.write("")
         st.write("")
         message = st.text_input("")
@@ -316,6 +317,78 @@ if __name__== '__main__':
     if message:
         keyInt = keyInt + 1
         ai_question = message
+        #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
+        res = search_docs(df_try, ai_question, top_n=1)
+        #Greife den Inhalt des Eintrages ab
+        context= res.CONTENT.values
+        
+        #Kombiniere den Prompt mit Baisisprompt, dem Inhalt und der Frage
+        combined_prompt = initial_prompt + str(context) + output + "Q: " + ai_question
+            
+        #API-Abfrage
+        messages.append(
+            {"role": "user", "content": combined_prompt},
+        )        
+        chat = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo", messages=messages
+        )
+            
+        #Greife Inhalt des Resultat der API Abfrage ab
+        ai_response = chat.choices[0].message.content
+        output = ai_response
+        update_markdown(empty_slot,output)
+        
+    if q1_btn:
+        keyInt = keyInt + 1
+        ai_question = Beispiel1
+        #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
+        res = search_docs(df_try, ai_question, top_n=1)
+        #Greife den Inhalt des Eintrages ab
+        context= res.CONTENT.values
+        
+        #Kombiniere den Prompt mit Baisisprompt, dem Inhalt und der Frage
+        combined_prompt = initial_prompt + str(context) + output + "Q: " + ai_question
+            
+        #API-Abfrage
+        messages.append(
+            {"role": "user", "content": combined_prompt},
+        )        
+        chat = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo", messages=messages
+        )
+            
+        #Greife Inhalt des Resultat der API Abfrage ab
+        ai_response = chat.choices[0].message.content
+        output = ai_response
+        update_markdown(empty_slot,output)
+        
+    if q2_btn:
+        keyInt = keyInt + 1
+        ai_question = Beispiel2
+        #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
+        res = search_docs(df_try, ai_question, top_n=1)
+        #Greife den Inhalt des Eintrages ab
+        context= res.CONTENT.values
+        
+        #Kombiniere den Prompt mit Baisisprompt, dem Inhalt und der Frage
+        combined_prompt = initial_prompt + str(context) + output + "Q: " + ai_question
+            
+        #API-Abfrage
+        messages.append(
+            {"role": "user", "content": combined_prompt},
+        )        
+        chat = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo", messages=messages
+        )
+            
+        #Greife Inhalt des Resultat der API Abfrage ab
+        ai_response = chat.choices[0].message.content
+        output = ai_response
+        update_markdown(empty_slot,output)
+        
+     if q3_btn:
+        keyInt = keyInt + 1
+        ai_question = Beispiel3
         #Greife den Eintrag ab, der am meisten Änhlichkeit mit der Frage hat
         res = search_docs(df_try, ai_question, top_n=1)
         #Greife den Inhalt des Eintrages ab
