@@ -79,6 +79,17 @@ button_style = """
       """
 st.markdown(button_style, unsafe_allow_html=True)
 
+button_style_submit = """
+    <style>
+            
+         .submitBtn > button{
+            color: white;
+            height: 50px;
+            width: 100px;
+            background: red;
+            }
+     </style>
+      """
 def get_embedding(text, model="text-embedding-ada-002"):
    return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
 
@@ -296,9 +307,10 @@ if __name__== '__main__':
         message = st.text_input("")
         #message = st.text_area("", "")
         st.markdown("</div>", unsafe_allow_html=True)
-        st.markdown('<div class="submitBtn">', unsafe_allow_html=True)
+        st.markdown(button_style_submit, unsafe_allow_html=True)
+        
         submit = st.button("Abschicken", "")
-        st.markdown('</div>', unsafe_allow_html=True)
+       
         
     
 
