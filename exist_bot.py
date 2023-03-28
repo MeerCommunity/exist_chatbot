@@ -394,7 +394,7 @@ if __name__== '__main__':
                 {"role": "user", "content": combined_prompt},
             )        
             chat = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", messages=messages
+            model="gpt-4", messages=messages
         )
             
             #Greife Inhalt des Resultat der API Abfrage ab
