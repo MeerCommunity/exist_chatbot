@@ -10,8 +10,8 @@ def generate_response(user_input):
     openai.api_key = "your_openai_api_key_here"
 
     # 设置GPT-3模型的相关参数
-    model_engine = "text-davinci-002"  # 或其他GPT-3模型，如"gpt-3.5-turbo"
-    prompt = f"用户：{user_input}\nChatbot："
+    model_engine = "gpt-3.5-turbo"
+    prompt = "Antwort auf Deutsch, Sie vertreten die Hochschule Emden/Leer, Halten Sie Ihre Antworten so kurz wie möglich, Ihr Name ist IPRO-ChatBot"
     max_tokens = 100
 
     # 调用OpenAI API生成回答
@@ -21,7 +21,7 @@ def generate_response(user_input):
         max_tokens=max_tokens,
         n=1,
         stop=None,
-        temperature=0.5,
+        temperature=0.8,
     )
 
     # 提取并返回生成的文本
