@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import os
 import streamlit as st
 import time
 import openai
 
 def generate_response(user_input):
-    # 用您的OpenAI API密钥进行身份验证
-    openai.api_key = "sk-"
-
-    # 设置GPT-3模型的相关参数
+    # OpenAI API
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    # GPT-3 and other parameter
     model_engine = "gpt-3.5-turbo"
 
     response = openai.ChatCompletion.create(
@@ -20,23 +20,24 @@ def generate_response(user_input):
         ],
     )
 
-    # 提取并返回生成的文本
+    # get response
     return response.choices[0].message.content.strip()
 
 
 
 st.title("IPRO-Demo")
 
-# 创建一个输入框，用于接收用户输入
+# input frame
 user_input = st.text_input("Frage Hier：")
 
 if st.button("Send"):
-    # 模拟ChatBot正在生成回答
+    # with a waiting icon
+    # GPT needs some time to response
     with st.spinner("Waiting..."):
         time.sleep(2)
 
-    # 调用generate_response函数生成回答
+    # get generate_response
     response = generate_response(user_input)
 
-    # 显示回答
+    # show the anwser
     st.write(response)
