@@ -5,6 +5,10 @@ import os
 import streamlit as st
 import time
 import openai
+import pandas as pd
+import numpy as np
+from openai.embeddings_utils import cosine_similarity
+from streamlit_chat import message
 
 def generate_response(user_input):
     # OpenAI API
@@ -23,15 +27,36 @@ def generate_response(user_input):
     # get response
     return response.choices[0].message.content.strip()
 
-
-
 st.title("IPRO-Demo")
+
+def get_embedding(text, model="text-embedding-ada-002"):
+    return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
+
+def search_docs(df, user_query, top_n=3):
+    embedding = get_embedding(user_query, model="text-embedding-ada-002")
+    df_question = df.copy()
+    df_question["similarities"] = df.ada_v2_embedding.apply(lambda x: cosine_similarity(x, embedding))
+    res = df_question.sort_values("similarities", ascending=False).head(top_n)
+    return res
+
+# Load the dataframe and embeddings
+df_try = pd.read_csv('df_chatbot_exist_v4.csv')
+all_embeddings = np.load('embeddings_v4.npy', allow_pickle=True)
+df_try['ada_v2_embedding'] = all_embeddings
+
+
+# Initialize chat history in session state
+if 'chat_history' not in st.session_state:
+    st.session_state['chat_history'] = []
 
 # input frame
 user_input = st.text_input("Frage Hier：")
 
 if st.button("Send"):
     # with a waiting icon
+    if 'chat_history' not in st.session_state:
+        st.session_state['chat_history'] = []
+
     # GPT needs some time to response
     with st.spinner("Waiting..."):
         time.sleep(2)
@@ -39,5 +64,14 @@ if st.button("Send"):
     # get generate_response
     response = generate_response(user_input)
 
-    # show the anwser
-    st.write(response)
+    # Add user input and response to chat history
+    st.session_state['chat_history'].append((user_input, response))
+
+    # show the chat history
+    for user_msg, bot_msg in st.session_state['chat_history']:
+        message(user_msg, is_user=True)
+        message(bot_msg)
+
+# Add a button to clear chat history
+if st.button("Clear Chat History"):
+    st.session_state['chat_history'] = []
