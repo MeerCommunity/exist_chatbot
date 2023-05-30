@@ -40,8 +40,8 @@ def search_docs(df, user_query, top_n=3):
     return res
 
 # Load the dataframe and embeddings
-df_try = pd.read_csv('df_chatbot_exist_v4.csv')
-all_embeddings = np.load('embeddings_v4.npy', allow_pickle=True)
+df_try = pd.read_csv('output.csv')
+all_embeddings = np.load('output.npy', allow_pickle=True)
 df_try['ada_v2_embedding'] = all_embeddings
 
 
