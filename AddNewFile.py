@@ -8,6 +8,8 @@ import re
 import PyPDF2
 import numpy as np
 import tiktoken
+import time
+from IPython.display import clear_output
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -42,11 +44,6 @@ def add_token_column(text):
         text = text.decode('utf-8')  # decode it to a string
     n_tokens = len(tokenizer.encode(text))
     return n_tokens
-
-
-
-import time
-from IPython.display import clear_output
 
 request_counter = 0
 total_requests_sent = 0
