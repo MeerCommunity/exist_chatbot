@@ -9,17 +9,44 @@ import pandas as pd
 import numpy as np
 from openai.embeddings_utils import cosine_similarity
 from streamlit_chat import message
+import PyPDF2
+
+def get_pdf_content(file_path):
+    pdf_file_obj = open(file_path, 'rb')
+    pdf_reader = PyPDF2.PdfReader(pdf_file_obj)
+    num_pages = len(pdf_reader.pages)
+    text_content = ""
+    for page in range(num_pages):
+        page_obj = pdf_reader.pages[page]
+        text_content += page_obj.extract_text()
+    pdf_file_obj.close()
+    return text_content
 
 def generate_response(user_input):
     # OpenAI API
     openai.api_key = os.getenv("OPENAI_API_KEY")
     # GPT-3 and other parameter
-    model_engine = "gpt-3.5-turbo"
+    model_engine = "gpt-3.5-turbo-0301"
+    qa_template = """
+   `````Antwort auf Deutsch, Sie vertreten die Hochschule Emden/Leer, Halten Sie Ihre Antworten so kurz wie möglich, Ihr Name ist IPRO-ChatBot
+        If you don't know the answer, just say you don't know. Do NOT try to make up an answer.
+        If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
+        Use as much detail as possible when responding.
+
+
+        context: {context}
+        =========
+        question: {question}
+        ======
+        """
+
+    # load PDF content
+    pdf_content = get_pdf_content("Liste_Fragen_IuP KSpethmann.pdf")
 
     response = openai.ChatCompletion.create(
         model=model_engine,
         messages=[
-            {"role": "system", "content": "Antwort auf Deutsch, Sie vertreten die Hochschule Emden/Leer, Halten Sie Ihre Antworten so kurz wie möglich, Ihr Name ist IPRO-ChatBot"},
+            {"role": "system", "content": qa_template.format(context=pdf_content, question=user_input) },
             {"role": "user", "content": user_input},
         ],
     )
@@ -29,21 +56,10 @@ def generate_response(user_input):
 
 st.title("IPRO-Demo")
 
-def get_embedding(text, model="text-embedding-ada-002"):
-    return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
-
-def search_docs(df, user_query, top_n=3):
-    embedding = get_embedding(user_query, model="text-embedding-ada-002")
-    df_question = df.copy()
-    df_question["similarities"] = df.ada_v2_embedding.apply(lambda x: cosine_similarity(x, embedding))
-    res = df_question.sort_values("similarities", ascending=False).head(top_n)
-    return res
-
 # Load the dataframe and embeddings
 df_try = pd.read_csv('output.csv')
 all_embeddings = np.load('output.npy', allow_pickle=True)
 df_try['ada_v2_embedding'] = all_embeddings
-
 
 # Initialize chat history in session state
 if 'chat_history' not in st.session_state:
