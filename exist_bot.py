@@ -26,7 +26,7 @@ def generate_response(user_input):
     # OpenAI API
     openai.api_key = os.getenv("OPENAI_API_KEY")
     # GPT-3 and other parameter
-    model_engine = "gpt-3.5-turbo-16k-0613"
+    model_engine = "gpt-4"
     qa_template = """
    `````Antwort auf Deutsch, Sie vertreten die Hochschule Emden/Leer, Halten Sie Ihre Antworten so kurz wie möglich, Ihr Name ist IPRO-ChatBot
         If you don't know the answer, just say you don't know. Do NOT try to make up an answer.
