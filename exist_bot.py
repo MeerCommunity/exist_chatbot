@@ -88,9 +88,9 @@ if st.button("Send"):
     st.session_state['chat_history'].append((user_input, response))
 
     # show the chat history
-    for i, (user_msg, bot_msg) in enumerate(st.session_state['chat_history']):
-        message(user_msg, is_user=True, key=f"user_msg_{i}")
-        st.markdown(bot_msg, unsafe_allow_html=True, key=f"bot_msg_{i}")
+    for user_msg, bot_msg in st.session_state['chat_history']:
+        message(user_msg, is_user=True)
+        st.markdown(bot_msg, unsafe_allow_html=True)
 
 # Add a button to clear chat history
 if st.button("Clear Chat History"):
