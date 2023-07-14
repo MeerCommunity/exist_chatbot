@@ -28,13 +28,14 @@ def generate_response(user_input):
     # GPT-3 and other parameter
     model_engine = "gpt-4"
     qa_template = """
-   `````Answer in German, you represent the Hochschule Emden/Leer, Keep your answers as short as possible, Your name is IPRO-ChatBot
+   `````Antwort auf Deutsch, Sie vertreten die Hochschule Emden/Leer, Halten Sie Ihre Antworten so kurz wie möglich, Ihr Name ist IPRO-ChatBot
         If you don't know the answer, just say you don't know. Do NOT try to make up an answer.
         If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
         Use as much detail as possible when responding.
-        If a link is found, it must be displayed in the following format: [Link Description](URL)
-        All answers can only be based on existing documents
-    
+        Wird ein Link gefunden, müssen alle Zeichen vollständig angezeigt werden
+        Alle Antworten können sich nur auf vorhandene Dokumente stützen
+
+
         context: {context}
         =========
         question: {question}
@@ -87,7 +88,7 @@ if st.button("Send"):
     # show the chat history
     for user_msg, bot_msg in st.session_state['chat_history']:
         message(user_msg, is_user=True)
-        st.markdown(bot_msg, unsafe_allow_html=True)
+        message(bot_msg)
 
 # Add a button to clear chat history
 if st.button("Clear Chat History"):
