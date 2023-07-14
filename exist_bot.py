@@ -88,7 +88,7 @@ if st.button("Send"):
     # show the chat history
     for user_msg, bot_msg in st.session_state['chat_history']:
         message(user_msg, is_user=True)
-        message(bot_msg, is_user=True)
+        message(bot_msg, is_user=False)
 
 # Add a button to clear chat history
 if st.button("Clear Chat History"):
