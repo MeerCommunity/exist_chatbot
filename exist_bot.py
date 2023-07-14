@@ -8,9 +8,7 @@ import openai
 import pandas as pd
 import numpy as np
 from openai.embeddings_utils import cosine_similarity
-from streamlit_chat import message
 import PyPDF2
-
 
 def get_pdf_content(file_path):
     pdf_file_obj = open(file_path, 'rb')
@@ -22,7 +20,6 @@ def get_pdf_content(file_path):
         text_content += page_obj.extract_text()
     pdf_file_obj.close()
     return text_content
-
 
 def generate_response(user_input):
     # OpenAI API
@@ -57,13 +54,7 @@ def generate_response(user_input):
     # get response
     return response.choices[0].message.content.strip()
 
-
 st.title("IPRO-Demo")
-
-# Load the dataframe and embeddings
-df_try = pd.read_csv('output.csv')
-all_embeddings = np.load('output.npy', allow_pickle=True)
-df_try['ada_v2_embedding'] = all_embeddings
 
 # Initialize chat history in session state
 if 'chat_history' not in st.session_state:
@@ -85,12 +76,13 @@ if st.button("Send"):
     response = generate_response(user_input)
 
     # Add user input and response to chat history
-    st.session_state['chat_history'].append((user_input, response))
+    st.session_state['chat_history'].append({"role": "user", "content": user_input})
+    st.session_state['chat_history'].append({"role": "assistant", "content": response})
 
     # show the chat history
-    for user_msg, bot_msg in st.session_state['chat_history']:
-        message(user_msg, is_user=True)
-        st.markdown(bot_msg, unsafe_allow_html=True)
+    for message in st.session_state['chat_history']:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
 # Add a button to clear chat history
 if st.button("Clear Chat History"):
