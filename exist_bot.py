@@ -11,6 +11,7 @@ from openai.embeddings_utils import cosine_similarity
 from streamlit_chat import message
 import PyPDF2
 
+
 def get_pdf_content(file_path):
     pdf_file_obj = open(file_path, 'rb')
     pdf_reader = PyPDF2.PdfReader(pdf_file_obj)
@@ -22,19 +23,19 @@ def get_pdf_content(file_path):
     pdf_file_obj.close()
     return text_content
 
+
 def generate_response(user_input):
     # OpenAI API
     openai.api_key = os.getenv("OPENAI_API_KEY")
     # GPT-3 and other parameter
     model_engine = "gpt-4"
     qa_template = """
-   `````Antwort auf Deutsch, Sie vertreten die Hochschule Emden/Leer, Halten Sie Ihre Antworten so kurz wie möglich, Ihr Name ist IPRO-ChatBot
+   `````Answer in German, you represent the Hochschule Emden/Leer, Keep your answers as short as possible, Your name is IPRO-ChatBot
         If you don't know the answer, just say you don't know. Do NOT try to make up an answer.
         If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
         Use as much detail as possible when responding.
-        Wird ein Link gefunden, müssen alle Zeichen vollständig angezeigt werden
-        Alle Antworten können sich nur auf vorhandene Dokumente stützen
-
+        If a link is found, it must be displayed in the following format: [Link Description](URL)
+        All answers can only be based on existing documents
 
         context: {context}
         =========
@@ -48,13 +49,14 @@ def generate_response(user_input):
     response = openai.ChatCompletion.create(
         model=model_engine,
         messages=[
-            {"role": "system", "content": qa_template.format(context=pdf_content, question=user_input) },
+            {"role": "system", "content": qa_template.format(context=pdf_content, question=user_input)},
             {"role": "user", "content": user_input},
         ],
     )
 
     # get response
     return response.choices[0].message.content.strip()
+
 
 st.title("IPRO-Demo")
 
@@ -86,9 +88,9 @@ if st.button("Send"):
     st.session_state['chat_history'].append((user_input, response))
 
     # show the chat history
-    for user_msg, bot_msg in st.session_state['chat_history']:
-        message(user_msg, is_user=True)
-        message(bot_msg, is_user=False)
+    for i, (user_msg, bot_msg) in enumerate(st.session_state['chat_history']):
+        message(user_msg, is_user=True, key=f"user_msg_{i}")
+        st.markdown(bot_msg, unsafe_allow_html=True, key=f"bot_msg_{i}")
 
 # Add a button to clear chat history
 if st.button("Clear Chat History"):
