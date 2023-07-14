@@ -66,6 +66,12 @@ df_try['ada_v2_embedding'] = all_embeddings
 if 'chat_history' not in st.session_state:
     st.session_state['chat_history'] = []
 
+def custom_message(message, is_user):
+    if is_user:
+        st.write(f"User: {message}")
+    else:
+        st.markdown(f"Bot: {message}", unsafe_allow_html=True)
+
 # input frame
 user_input = st.text_input("Frage Hier：")
 
@@ -85,9 +91,10 @@ if st.button("Send"):
     st.session_state['chat_history'].append((user_input, response))
 
     # show the chat history
+    # show the chat history
     for user_msg, bot_msg in st.session_state['chat_history']:
-        message(user_msg, is_user=True)
-        st.markdown(bot_msg, unsafe_allow_html=True)
+        custom_message(user_msg, is_user=True)
+        custom_message(bot_msg, is_user=False)
 
 # Add a button to clear chat history
 if st.button("Clear Chat History"):
