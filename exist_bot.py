@@ -28,13 +28,15 @@ def generate_response(user_input):
     model_engine = "gpt-3.5-turbo-16k"
     temperature = 0.2
     qa_template = """
-   `````Answer in German, you represent the Hochschule Emden/Leer, Keep your answers as short as possible, Your name is IPRO-ChatBot
+   `````Answer in the language of the question, you represent the Hochschule Emden/Leer, Keep your answers as short as possible, Your name is IPRO-ChatBot
         If you don't know the answer, just say you don't know. Do NOT try to make up an answer.
         If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
         Use as much detail as possible when responding.
         If a link is found, it must be displayed in the following format: [Link Description](URL)
         All answers can only be based on existing documents, If users ask a question outside of the documentation, just answer you don't know
-        Don't answer questions outside of the document
+        Don't answer questions outside of the document, If the user asks a question outside the documentation, please contact Immatrikulations- und Prüfungsamt for a direct answer.
+        Don't answer questions outside of the document, If the user asks a question outside the documentation, please contact Immatrikulations- und Prüfungsamt for a direct answer.
+        Don't answer questions outside of the document, If the user asks a question outside the documentation, please contact Immatrikulations- und Prüfungsamt for a direct answer.
 
         context: {context}
         =========
@@ -65,26 +67,31 @@ if 'chat_history' not in st.session_state:
 # input frame
 user_input = st.text_input("Frage Hier：")
 
-if st.button("Send"):
-    # with a waiting icon
-    if 'chat_history' not in st.session_state:
-        st.session_state['chat_history'] = []
+# Check if the conversation has exceeded 10 turns
+if len(st.session_state['chat_history']) > 10:
+    st.warning("Das Gespräch hat die maximale Anzahl an Runden überschritten. Bitte starten Sie ein neues Gespräch.")
+    st.session_state['chat_history'] = []
+else:
+    if st.button("Send"):
+        # with a waiting icon
+        if 'chat_history' not in st.session_state:
+            st.session_state['chat_history'] = []
 
-    # GPT needs some time to response
-    with st.spinner("Waiting..."):
-        time.sleep(2)
+        # GPT needs some time to response
+        with st.spinner("Waiting..."):
+            time.sleep(2)
 
-    # get generate_response
-    response = generate_response(user_input)
+        # get generate_response
+        response = generate_response(user_input)
 
-    # Add user input and response to chat history
-    st.session_state['chat_history'].append({"role": "user", "content": user_input})
-    st.session_state['chat_history'].append({"role": "assistant", "content": response})
+        # Add user input and response to chat history
+        st.session_state['chat_history'].append({"role": "user", "content": user_input})
+        st.session_state['chat_history'].append({"role": "assistant", "content": response})
 
-    # show the chat history
-    for message in st.session_state['chat_history']:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        # show the chat history
+        for message in st.session_state['chat_history']:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
 # Add a button to clear chat history
 if st.button("Clear Chat History"):
