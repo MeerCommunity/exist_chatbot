@@ -2,13 +2,12 @@
 # coding: utf-8
 
 import os
-import streamlit as st
 import time
-import openai
-import pandas as pd
-import numpy as np
-from openai.embeddings_utils import cosine_similarity
+
 import PyPDF2
+import openai
+import streamlit as st
+
 
 # print("Current Working Directory:", os.getcwd())
 # print("Files in Directory:", os.listdir())
@@ -23,6 +22,7 @@ def get_pdf_content(file_path):
         text_content += page_obj.extract_text()
     pdf_file_obj.close()
     return text_content
+
 
 def generate_response(user_input):
     # OpenAI API
@@ -63,8 +63,11 @@ def generate_response(user_input):
     # get response
     return response.choices[0].message.content.strip()
 
+
 st.title("IPRO-Demo")
-st.info("Bitte beachten Sie: Die Antworten, die von diesem Chatbot gegeben werden, basieren auf AI und sind möglicherweise nicht immer 100% genau oder zuverlässig. Bei Unklarheiten oder wichtigen Anfragen empfehlen wir, sich direkt an die zuständige Stelle zu wenden.")
+st.info(
+    "Bitte beachten Sie: Die Antworten, die von diesem Chatbot gegeben werden, basieren auf AI und sind möglicherweise nicht immer 100% genau oder zuverlässig. Bei Unklarheiten oder wichtigen Anfragen empfehlen wir, sich direkt an die zuständige Stelle zu wenden.")
+
 
 def get_pdf_content(file_path):
     file_path = file_path.strip("'")  # 添加这一行来去除任何额外的单引号
@@ -77,6 +80,7 @@ def get_pdf_content(file_path):
         text_content += page_obj.extract_text()
     pdf_file_obj.close()
     return text_content
+
 
 def predict_intent_with_gpt(question):
     """
@@ -106,20 +110,6 @@ def predict_intent_with_gpt(question):
 
     return "Main.pdf"
 
-# def select_pdf_based_on_question(question):
-#     """
-#     Wählen Sie das entsprechende PDF-Dokument entsprechend dem Inhalt der Frage aus.
-#     """
-#     predicted_intent = predict_intent_with_gpt(question)
-#
-#     # Map the predicted intent to the correct PDF file name
-#     pdf_mapping = {
-#         "Contact": "Contact.pdf",
-#         "Transport": "Anreise.pdf",
-#         "Main": "Main.pdf"
-#     }
-#
-#     return pdf_mapping.get(predicted_intent, "Main.pdf")  # 默认返回"Main.pdf"，以防万一
 
 # Initialize chat history in session state
 if 'chat_history' not in st.session_state:
