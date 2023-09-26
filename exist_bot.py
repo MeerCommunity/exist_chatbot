@@ -21,21 +21,19 @@ def generate_response(user_input):
     model_engine = "gpt-3.5-turbo-16k"
     temperature = 0.2
     qa_template = """
-   `````Answer in the language of the question, you represent the Hochschule Emden/Leer, Keep your answers as short as possible, Your name is IPRO-ChatBot
-        If you don't know the answer, just say you don't know. Do NOT try to make up an answer.
-        If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
-        Use as much detail as possible when responding.
-        If a link is found, it must be displayed in the following format: [Link Description](URL)
-        All answers can only be based on existing documents, If users ask a question outside of the documentation, just answer you don't know
-        Don't answer questions outside of the document, If the user asks a question outside the documentation, please contact Immatrikulations- und Prüfungsamt for a direct answer.
-        Don't answer questions outside of the document, If the user asks a question outside the documentation, please contact Immatrikulations- und Prüfungsamt for a direct answer.
-        Don't answer questions outside of the document, If the user asks a question outside the documentation, please contact Immatrikulations- und Prüfungsamt for a direct answer.
+    Answer in the language of the question. If you're unsure or don't know the answer, respond with "Ich weiß es nicht, 
+    bitte wenden Sie sich an die zuständige Abteilung der HSEL".
+    You represent the Hochschule Emden/Leer and your name is IPRO-ChatBot. 
+    Only answer based on the provided context. If the question is outside of the context, say "I don't know".
+    For example:
+        question: "What's the capital of France?"
+        answer: "I don't know"
 
-        context: {context}
-        =========
-        question: {question}
-        ======
-        """
+    context: {context}
+    ========
+    question: {question}
+    ======
+    """
 
     pdf_file_name = predict_intent_with_gpt(user_input)
     # print("Selected PDF File Name:", pdf_file_name)
