@@ -12,17 +12,7 @@ import streamlit as st
 # print("Current Working Directory:", os.getcwd())
 # print("Files in Directory:", os.listdir())
 
-def get_pdf_content(file_path):
-    pdf_file_obj = open(file_path, 'rb')
-    pdf_reader = PyPDF2.PdfReader(pdf_file_obj)
-    num_pages = len(pdf_reader.pages)
-    text_content = ""
-    for page in range(num_pages):
-        page_obj = pdf_reader.pages[page]
-        text_content += page_obj.extract_text()
-    pdf_file_obj.close()
-    return text_content
-
+BASE_DIR = "Files"  # 设置基础目录为"Files"
 
 def generate_response(user_input):
     # OpenAI API
@@ -86,7 +76,8 @@ def predict_intent_with_gpt(question):
     """
     Predicting user question intent using ChatGPT
     """
-    valid_intents = ["Contact", "Transport", "Main"]
+    valid_intents = ["Contact", "Transport", "Main", "Stipendium", "Studiengänge", "Hochschule-Grunddaten",
+                     "Promovieren"]
     max_attempts = 2
     attempts = 0
 
@@ -95,7 +86,8 @@ def predict_intent_with_gpt(question):
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": "Predict the intent of the question. The answer must be one of the following: 'Contact.pdf', 'Anreise.pdf', or 'Main.pdf'."},
+                 "content": "Predict the intent of the question. The answer must be one of the following: 'Contact', "
+                            "'Stipendium', 'Studiengänge', 'Hochschule-Grunddaten', 'Promovieren' or 'Main'."},
                 {"role": "user", "content": question},
             ]
         )
@@ -104,11 +96,13 @@ def predict_intent_with_gpt(question):
         predicted_intent = response.choices[0].message.content.strip()
 
         if predicted_intent in valid_intents:
-            return predicted_intent
+            pdf_file_path = os.path.join(BASE_DIR, predicted_intent, predicted_intent + ".pdf")
+            return pdf_file_path
 
         attempts += 1
 
-    return "Main.pdf"
+    return os.path.join(BASE_DIR, "Main", "Files/Main/Main.pdf")
+
 
 
 # Initialize chat history in session state
