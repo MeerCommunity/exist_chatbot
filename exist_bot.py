@@ -9,13 +9,14 @@ BASE_DIR = "Files"  # 设置基础目录为"Files"
 def generate_response(user_input):
     # OpenAI API
     openai.api_key = os.getenv("OPENAI_API_KEY")
+
     # GPT-3 and other parameter
     model_engine = "gpt-3.5-turbo-16k"
     temperature = 0.2
     qa_template = """
-    Answer in the language of the question. If you're unsure or don't know the answer, respond with "Ich weiß es nicht, 
+    Answer in the language of the question. If you're unsure or don't know the answer, respond with "Ich weiß es nicht,
     bitte wenden Sie sich an die zuständige Abteilung der HSEL".
-    You represent the Hochschule Emden/Leer and your name is IPRO-ChatBot. 
+    You represent the Hochschule Emden/Leer and your name is IPRO-ChatBot.
     Only answer based on the provided context. If the question is outside of the context, say "I don't know".
     For example:
         question: "What's the capital of France?"
@@ -50,7 +51,7 @@ def get_pdf_content(file_path):
     return text_content
 
 def predict_intent_with_gpt(question):
-    valid_intents = ["Contact", "Transport", "Main", "Stipendium", "Studiengänge", "Hochschule-Grunddaten", "Promovieren"]
+    valid_intents = ["Contact", "Transport", "Main", "Stipendium", "Studiengänge", "Hochschule-Grunddaten", "Promovieren", "Person"]
     max_attempts = 2
     attempts = 0
     while attempts < max_attempts:
@@ -58,7 +59,7 @@ def predict_intent_with_gpt(question):
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": "Predict the intent of the question. The answer must be one of the following: 'Contact', 'Stipendium', 'Studiengänge', 'Hochschule-Grunddaten', 'Promovieren' or 'Main'."},
+                 "content": "Predict the intent of the question. The answer must be one of the following: 'Contact', 'Stipendium', 'Studiengänge', 'Hochschule-Grunddaten', 'Promovieren' , 'Person' or 'Main'."},
                 {"role": "user", "content": question},
             ]
         )
