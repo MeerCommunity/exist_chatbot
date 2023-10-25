@@ -68,7 +68,7 @@ def predict_intent_with_gpt(question):
             pdf_file_path = os.path.join(BASE_DIR, predicted_intent, predicted_intent + ".pdf")
             return pdf_file_path
         attempts += 1
-    return os.path.join(BASE_DIR, "Main", "Files/Main/Main.pdf")
+    return os.path.join(BASE_DIR, "Main", "Main.pdf")
 
 st.title("IPRO-Demo")
 st.info("Bitte beachten Sie: Die Antworten, die von diesem Chatbot gegeben werden, basieren auf AI und sind möglicherweise nicht immer 100% genau oder zuverlässig. Bei Unklarheiten oder wichtigen Anfragen empfehlen wir, sich direkt an die zuständige Stelle zu wenden.")
