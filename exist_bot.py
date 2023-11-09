@@ -1,16 +1,16 @@
 import os
-import time
 import PyPDF2
 import openai
 import streamlit as st
 
-BASE_DIR = "Files"  # 设置基础目录为"Files"
+BASE_DIR = "Files"  # Set the base directory to "Files"
 
 def generate_response(user_input):
-    # OpenAI API
+    # Retrieve the OpenAI API key
     openai.api_key = os.getenv("OPENAI_API_KEY")
+    openai.api_key = "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"
 
-    # GPT-3 and other parameter
+    # GPT-3 and other parameters
     model_engine = "gpt-3.5-turbo-16k"
     temperature = 0.2
     qa_template = """
@@ -24,18 +24,37 @@ def generate_response(user_input):
 
     context: {context}
     ========
+    previous conversation:
+    {previous_conversation}
     question: {question}
     ======
     """
+
+    # Ensure the 'messages' list exists in the session state
+    if 'messages' not in st.session_state:
+        st.session_state['messages'] = []
+
+    # Build the string of previous conversation, including past Q&A
+    previous_conversation = "\n".join(
+        f"{msg['role']}: {msg['content']}" for msg in st.session_state['messages']
+    )
+
     pdf_file_name = predict_intent_with_gpt(user_input)
     pdf_content = get_pdf_content(pdf_file_name)
+
     response = openai.ChatCompletion.create(
         model=model_engine,
         messages=[
-            {"role": "system", "content": qa_template.format(context=pdf_content, question=user_input)},
+            {"role": "system", "content": qa_template.format(context=pdf_content, previous_conversation=previous_conversation, question=user_input)},
             {"role": "user", "content": user_input},
         ],
     )
+
+    # Add the generated answer to the conversation history
+    st.session_state['messages'].append(
+        {"role": "assistant", "content": response.choices[0].message.content.strip()}
+    )
+
     return response.choices[0].message.content.strip()
 
 def get_pdf_content(file_path):
@@ -50,8 +69,10 @@ def get_pdf_content(file_path):
     pdf_file_obj.close()
     return text_content
 
+
 def predict_intent_with_gpt(question):
-    valid_intents = ["Contact", "Transport", "Main", "Stipendium", "Studiengänge", "Hochschule-Grunddaten", "Promovieren", "Person"]
+    valid_intents = ["Contact", "Transport", "Main", "Stipendium", "Studiengänge", "Hochschule-Grunddaten",
+                     "Promovieren", "Person"]
     max_attempts = 2
     attempts = 0
     while attempts < max_attempts:
@@ -70,8 +91,11 @@ def predict_intent_with_gpt(question):
         attempts += 1
     return os.path.join(BASE_DIR, "Main", "Main.pdf")
 
+
+# Streamlit part of the code
 st.title("IPRO-Demo")
-st.info("Bitte beachten Sie: Die Antworten, die von diesem Chatbot gegeben werden, basieren auf AI und sind möglicherweise nicht immer 100% genau oder zuverlässig. Bei Unklarheiten oder wichtigen Anfragen empfehlen wir, sich direkt an die zuständige Stelle zu wenden.")
+st.info(
+    "Please note: The responses provided by this chatbot are based on AI and may not always be 100% accurate or reliable. In case of uncertainties or important inquiries, we recommend contacting the responsible office directly.")
 
 # Initialize chat history in session state
 if 'messages' not in st.session_state:
