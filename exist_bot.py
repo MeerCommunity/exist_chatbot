@@ -8,7 +8,6 @@ BASE_DIR = "Files"  # Set the base directory to "Files"
 def generate_response(user_input):
     # Retrieve the OpenAI API key
     openai.api_key = os.getenv("OPENAI_API_KEY")
-    openai.api_key = "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"
 
     # GPT-3 and other parameters
     model_engine = "gpt-3.5-turbo-16k"
