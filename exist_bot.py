@@ -105,26 +105,36 @@ st.info(
     "reliable. In case of uncertainties or important inquiries, we recommend contacting the responsible office "
     "directly.")
 
-# Initialize chat history in session state
+# Initialize chat history in session state if it doesn't exist
 if 'messages' not in st.session_state:
     st.session_state.messages = []
-
-# Display chat messages from history on app rerun
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
 
 # React to user input
 user_input = st.chat_input("Frage Hier：")
 if user_input:
-    st.session_state.messages.append({"role": "user", "content": user_input})
-    with st.chat_message("user"):
-        st.markdown(user_input)
-    response = generate_response(user_input)
-    with st.chat_message("assistant"):
-        st.markdown(response)
-    st.session_state.messages.append({"role": "assistant", "content": response})
+    # Check if the user input was already processed
+    if ('last_input' not in st.session_state or
+            st.session_state.last_input != user_input):
+        # Store the current user input to prevent processing it again
+        st.session_state.last_input = user_input
+
+        # Add user input to the session state
+        st.session_state.messages.append({"role": "user", "content": user_input})
+
+        # Generate a response
+        response = generate_response(user_input)
+
+        # Display chat messages from history
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
+
+        # Add the assistant's response to the session state
+        st.session_state.messages.append({"role": "assistant", "content": response})
 
 # Add a button to clear chat history
 if st.button("Clear Chat History"):
+    # Clear chat history and last input to reset the chat
     st.session_state.messages = []
+    if 'last_input' in st.session_state:
+        del st.session_state.last_input
