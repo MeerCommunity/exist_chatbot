@@ -44,7 +44,9 @@ def generate_response(user_input):
     response = openai.ChatCompletion.create(
         model=model_engine,
         messages=[
-            {"role": "system", "content": qa_template.format(context=pdf_content, previous_conversation=previous_conversation, question=user_input)},
+            {"role": "system",
+             "content": qa_template.format(context=pdf_content, previous_conversation=previous_conversation,
+                                           question=user_input)},
             {"role": "user", "content": user_input},
         ],
     )
@@ -55,6 +57,7 @@ def generate_response(user_input):
     )
 
     return response.choices[0].message.content.strip()
+
 
 def get_pdf_content(file_path):
     file_path = file_path.strip("'")
@@ -79,7 +82,9 @@ def predict_intent_with_gpt(question):
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": "Predict the intent of the question. The answer must be one of the following: 'Contact', 'Stipendium', 'Studiengänge', 'Hochschule-Grunddaten', 'Promovieren' , 'Person' or 'Main'."},
+                 "content": "Predict the intent of the question. The answer must be one of the following: 'Contact', "
+                            "'Stipendium', 'Studiengänge', 'Hochschule-Grunddaten', 'Promovieren' , 'Person' or "
+                            "'Main'."},
                 {"role": "user", "content": question},
             ]
         )
@@ -94,7 +99,9 @@ def predict_intent_with_gpt(question):
 # Streamlit part of the code
 st.title("IPRO-Demo")
 st.info(
-    "Please note: The responses provided by this chatbot are based on AI and may not always be 100% accurate or reliable. In case of uncertainties or important inquiries, we recommend contacting the responsible office directly.")
+    "Please note: The responses provided by this chatbot are based on AI and may not always be 100% accurate or "
+    "reliable. In case of uncertainties or important inquiries, we recommend contacting the responsible office "
+    "directly.")
 
 # Initialize chat history in session state
 if 'messages' not in st.session_state:
