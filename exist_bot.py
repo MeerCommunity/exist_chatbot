@@ -3,12 +3,13 @@ import PyPDF2
 import openai
 import streamlit as st
 
+# Initialize the OpenAI client with the API key
+openai.api_key = os.getenv("OPENAI_API_KEY")
+client = openai.Client()
+
 BASE_DIR = "Files"  # Set the base directory to "Files"
 
 def generate_response(user_input):
-    # Retrieve the OpenAI API key
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-
     # GPT-3 and other parameters
     model_engine = "gpt-3.5-turbo-16k"
     temperature = 0.2
@@ -41,7 +42,7 @@ def generate_response(user_input):
     pdf_file_name = predict_intent_with_gpt(user_input)
     pdf_content = get_pdf_content(pdf_file_name)
 
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model=model_engine,
         messages=[
             {"role": "system",
@@ -49,6 +50,7 @@ def generate_response(user_input):
                                            question=user_input)},
             {"role": "user", "content": user_input},
         ],
+        temperature=temperature,
     )
 
     # Add the generated answer to the conversation history
@@ -57,7 +59,6 @@ def generate_response(user_input):
     )
 
     return response.choices[0].message.content.strip()
-
 
 def get_pdf_content(file_path):
     file_path = file_path.strip("'")
@@ -71,14 +72,13 @@ def get_pdf_content(file_path):
     pdf_file_obj.close()
     return text_content
 
-
 def predict_intent_with_gpt(question):
     valid_intents = ["Contact", "Transport", "Main", "Stipendium", "Studiengänge", "Hochschule-Grunddaten",
                      "Promovieren", "Person"]
-    max_attempts = 2
+    max_attempts = 1
     attempts = 0
     while attempts < max_attempts:
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
@@ -88,7 +88,9 @@ def predict_intent_with_gpt(question):
                 {"role": "user", "content": question},
             ]
         )
+
         predicted_intent = response.choices[0].message.content.strip()
+
         if predicted_intent in valid_intents:
             pdf_file_path = os.path.join(BASE_DIR, predicted_intent, predicted_intent + ".pdf")
             return pdf_file_path
